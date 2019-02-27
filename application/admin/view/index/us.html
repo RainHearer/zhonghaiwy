@@ -1,0 +1,120 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>控制台页面</title>
+<link rel="stylesheet" href="__CSS__/style.default.css" type="text/css" />
+<script type="text/javascript" src="__JS__/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.flot.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="__JS__/custom/general.js"></script>
+<script type="text/javascript" src="__JS__/custom/dashboard.js"></script>
+<script type="text/javascript" src="__JS__/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="__JS__/bao.js"></script>
+
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="__JS__/plugins/excanvas.min.js"></script><![endif]-->
+<!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href="css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href="css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+  <script src="__JS__/plugins/css3-mediaqueries.js"></script>
+<![endif]-->
+  <script>
+$(document).ready(function(){
+   $(".addcase").hide();
+
+  $("#addcase_b").click(function(){
+    $(".addcase").toggle();
+  });
+
+    $("#case_type_add").click(function(){
+    alert($("#typename").val());
+     $.post("../datapost/typeadd",
+     {
+       typename:$("#typename").val()
+     }, function(data,status){
+        alert("数据: \n" + data);
+        location.reload();
+    })
+
+  });//。。。。。。。。。。。。。。。。。。。。。。。。。。
+
+});
+</script>
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+   {include file="common/left"/} 
+        
+  <div class="centercontent">
+  <form class="stdform">
+
+                       
+                
+{volist name="us" id="vo"}
+<p>
+       <label>电话：</label>
+       <span class="field">
+       <input type="text" class="smallinput"  id="tell" placeholder="{$vo.tell}"><a href="javascript:;" onclick="us('tell')">更改</a>
+       </span>
+  </p>
+  <p>
+       <label>QQ：</label>
+       <span class="field">
+       <input type="text" class="smallinput"  id="qq" placeholder="{$vo.qq}"><a href="javascript:;" onclick="us('qq')">更改</a>
+       </span>
+  </p>
+  <p>
+       <label>地址：</label>
+       <span class="field">
+       <input type="text" class="smallinput"  id="address" placeholder="{$vo.address}"><a href="javascript:;" onclick="us('address')">更改</a>
+       </span>
+  </p>
+  <p>
+       <label>邮箱：</label>
+       <span class="field">
+       <input type="text" class="smallinput"  id="mail" placeholder="{$vo.mail}"><a href="javascript:;" onclick="us('mail')">更改</a>
+       </span>
+  </p>
+  {/volist}       
+    
+  </form>
+
+  </div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+<script type="text/javascript">
+
+  function us(name)
+
+{    
+ 
+    $.post("../datapost/usuploads",
+    {
+        type:$("#"+name).val(),
+        vo:name
+ 
+    },
+        function(data,status){
+        baomsg(data);
+        //location.reload();
+    });
+
+
+}//............................
+
+</script>
+</html>

@@ -1,0 +1,76 @@
+ <div class="topheader">
+        <div class="left">
+            <h1 class="logo">中海<span>物业</span></h1>
+            <span class="slogan">后台管理系统</span>
+            
+    
+            
+            <br clear="all" />
+            
+        </div><!--left-->
+        
+        <div class="right">
+          <!--<div class="notification">
+                <a class="count" href="ajax/notifications.html"><span>9</span></a>
+          </div>-->
+            <div class="userinfo">
+             <!-- <img src="images/thumbs/avatar.png" alt="" />-->
+                <span>管理员：{:$_SESSION['user']}</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+        
+                <div class="userdata">
+                    <ul>
+                 
+                        <li><a href="out.html">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+    
+    
+    <div class="header">
+      <ul class="headermenu">
+          <li class="current"><a href=""><span class="icon icon-flatscreen"></span>首页</a></li>
+          <li><a href="{:url('index/index/index')}" target="_blank"><span class="icon icon-pencil" ></span>打开网站</a></li>
+        </ul>
+        
+       <div class="headerwidget">
+
+        </div><!--headerwidget-->
+        
+    </div><!--header-->
+    
+    <div class="vernav2 iconmenu">
+      <ul>
+     
+
+ <li><a href="#formsub" class="addons">案例管理</a>
+              <span class="arrow"></span>
+              <ul id="formsub" style="display: none;">
+                    <li><a href="home.html?page=1" >案例管理</a></li>
+                    <li><a href="addcase.html">新增案例</a></li>
+                </ul>
+            </li>
+<li><a href="#error" class="error">简介管理</a>
+              <span class="arrow"></span>
+              <ul id="error" style="display: none;">
+                    <li><a href="introdedit.html?id=公司简介">公司简介</a></li>
+                    <li><a href="introdedit.html?id=企业招聘">招聘简介</a></li>
+                </ul>
+            </li>
+
+
+  <li><a href="adveredti.html">招聘信息</a></li>
+  <li><a href="newedti.html?page=1" class="typo">新闻管理</a></li>
+  <li><a href="picedti.html">图片管理</a></li>
+
+
+  <li><a href="us.html">联系信息</a></li>
+  <li><a href="adminuser.html">管理员列表</a> </li>
+        </ul>
+        <a class="togglemenu"></a>
+        <br /><br />
+    </div><!--leftmenu-->

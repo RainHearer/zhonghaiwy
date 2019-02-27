@@ -1,0 +1,165 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>控制台页面</title>
+<link rel="stylesheet" href="__CSS__/style.default.css" type="text/css" />
+<script type="text/javascript" src="__JS__/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.flot.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="__JS__/custom/general.js"></script>
+<script type="text/javascript" src="__JS__/custom/dashboard.js"></script>
+<script type="text/javascript" src="__JS__/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="__JS__/bao.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="__JS__/plugins/excanvas.min.js"></script><![endif]-->
+<!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href="css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href="css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+  <script src="__JS__/plugins/css3-mediaqueries.js"></script>
+<![endif]-->
+<script>
+$(document).ready(function(){
+
+
+    $("#subuseradd").click(function(){
+    $.post("../datapost/useradd",
+     {
+       user:$("#user").val(),
+       paw:$("#paw").val()
+     }, function(data,status){
+        baomsg(data);
+
+    })
+
+  });//。。。。。。。。。。。。。。。。。。。。。。。。。。
+
+});
+</script>
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+   {include file="common/left"/} 
+        
+  <div class="centercontent">
+   <div class="contentwrapper">
+                        <div class="contenttitle2">
+                    	<h3>管理员列表</h3>
+                    </div>
+                        <!--table-->
+                      <table cellpadding="0" cellspacing="0" border="0" class="stdtable">
+                    <colgroup>
+                        <col class="con0">
+                        <col class="con1">
+                        <col class="con0">
+                        <col class="con1">
+                        <col class="con0">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="head0">序号</th>
+                            <th class="head1">账户</th>
+                            <th class="head0">重置密码</th>
+                            <th class="head1">级别</th>
+                            <th class="head0">上次登录</th>
+                            <th class="head1">操作</th>
+                        </tr>
+                    </thead>
+          {volist name='user_list' id="vo"}
+    <tr>
+      <td>{$i}</td>
+      <td>{$vo.adminuser}</td>
+      <td><input type="" id="newpaw{$vo.adminuser}" name="" placeholder="输入新密码">
+      <a href="javascript:;" onclick="new_paw('{$vo.adminuser}')">重置</a>
+      </td>
+
+      <td>{$vo.suser}</td>
+      <td>{$vo.lasttime}</td>
+     <td><a href="javascript:;" onclick="user_delect('{$vo.id}')">删除</a></td>
+    </tr>
+    {/volist}
+                </table><br>
+                      <!--table-->
+                      <div class="contenttitle2">
+                    	<h3>添加管理员</h3>
+                    </div>    
+
+    <table cellpadding="0" cellspacing="0" border="0" class="stdtable">
+                    <colgroup>
+                        <col class="con0">
+                        <col class="con1">
+                        <col class="con0">
+                        <col class="con1">
+                        <col class="con0">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                            <th class="head0">选项</th>
+                            <th class="head1">填写</th>
+                      
+                        </tr></thead>
+                        <tbody>
+                          <tr>
+                           <td>账号</td><td><input type="text" id="user" value="" class="smallinput" placeholder="账号"></td>
+                          </tr>
+                          <tr>
+                            <td>密码</td><td><input type="text" id="paw" class="smallinput" placeholder="密码"></td>
+                          </tr>
+                        </tbody>
+  </table><br>
+   <button class="stdbtn" id="subuseradd">添加</button>
+
+    </div>
+  </div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+<script type="text/javascript">
+	function user_delect(id)
+
+{
+	  $.post("../datapost/userdelect",
+    {
+        id:id
+ 
+    },
+        function(data,status){
+          baomsg(data);
+    });
+
+
+}//............................
+	function new_paw(user)
+
+{    
+
+	  $.post("../datapost/newpaw",
+    {
+        newpaw:$("#newpaw"+user).val(),
+        user:user
+ 
+    },
+        function(data,status){
+         baomsg(data);
+     
+
+    });
+
+
+}//............................
+
+
+</script>
+</html>

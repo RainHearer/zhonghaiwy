@@ -1,0 +1,65 @@
+﻿	{include file="common/head"/}
+<!-- end nav -->
+<!--star动画-->
+{volist  name="img" id="img"}
+<div style="background:url(__ROOT__/{$img.imgpath});" class="banner_04 ">
+{/volist}
+
+</div>
+
+<!--end动画-->
+<!--star一行-->
+<div class="w_1200">
+<div class="page_04">
+	<div class="title">成功案例<div></div></div>
+	<div class="nav"><a href="首页.html">首页</a>/<span>成功案例</span></div>
+	</div>
+	<div class="service_project">
+				<div class="content">
+<!--
+			<div class="item"><a href="####"><img src="__ROOT__/static/images/10.png" alt=""></a><p>物业服务</p></div>
+			<div class="blank"></div>
+			<div class="item"><a href="####"><img src="__ROOT__/static/images/10.png" alt=""></a><p>物业服务</p></div>
+			<div class="blank"></div>
+			<div class="item"><a href="####"><img src="__ROOT__/static/images/10.png" alt=""></a><p>物业服务</p></div>
+			<div class="blank"></div>
+			<div class="item"><a href="####"><img src="__ROOT__/static/images/10.png" alt=""></a><p>物业服务</p></div>
+			<div class="item"><a href="####"><img src="__ROOT__/static/images/10.png" alt=""></a><p>物业服务</p></div>
+			<div class="blank"></div>
+			<div class="item"><a href="####"><img src="__ROOT__/static/images/10.png" alt=""></a><p>物业服务</p></div>
+			<div class="blank"></div>
+			<div class="item"><a href="####"><img src="__ROOT__/static/images/10.png" alt=""></a><p>物业服务</p></div>
+			<div class="blank"></div>
+			<div class="item"><a href="####"><img src="__ROOT__/static/images/10.png" alt=""></a><p>物业服务</p></div>
+			-->
+	{volist name="case_sucesse_list" id="vo" length="8"}
+			{php}
+			if(!($i==1||(($i-1)%4)==0)){echo '<div class="blank"></div>';}
+			{/php}
+			<!--第一个或者每行的第四个加blank-->
+			<div class="item">
+				<a href="casepage?id={$vo.id}" target="_blank"><img class="case_img"  src="__ROOT__/{$vo.imgpath}" alt=""></a>
+				<p>{$vo.casename}</p>
+			</div>
+	
+		{/volist}
+		</div>
+		<div class="clear"></div>
+	</div>
+		<div class="pagination">
+				<span class="totalNum">{$count}</span>&nbsp;条记录 &nbsp;{php}echo $_GET['page'];{/php}/{php}echo ceil($count/10);{/php}页 &nbsp; <a href="sucessecase.html?page={php}echo $_GET['page']+1;{/php}">下一页</a> 
+
+				{php}
+				  for ($i=1; $i < ceil(($count+1)/10)+1; $i++) { 
+				  echo "<a class='pageNum' href='sucessecase.html?page=".$i."'>".$i."</a>";
+				  
+           
+                             }
+
+
+				{/php}
+			
+				</div>
+</div>
+<!--end一行-->
+	{include file="common/footer"/}

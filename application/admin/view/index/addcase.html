@@ -1,0 +1,195 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forms | Amanda Admin Template</title>
+<link rel="stylesheet" href="__CSS__/style.default.css" type="text/css" />
+<script type="text/javascript" src="__JS__/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/charCount.js"></script>
+<script type="text/javascript" src="__JS__/plugins/ui.spinner.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/custom/general.js"></script>
+<script type="text/javascript" src="__JS__/custom/forms.js"></script>
+<script type="text/javascript" src="__JS__/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="__JS__/bao.js"></script>
+<!--uedti-->
+<script type="text/javascript" charset="utf-8" src="__ROOT__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__ROOT__/ueditor/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="__ROOT__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+
+<link href="__ROOT__/ueditor/themes/default/css/ueditor.css" type="text/css" rel="stylesheet">
+<script src="__ROOT__/ueditor/third-party/codemirror/codemirror.js" type="text/javascript" defer="defer"></script>
+<link rel="stylesheet" type="text/css" href="__ROOT__/ueditor/third-party/codemirror/codemirror.css">
+<script src="__ROOT__/ueditor/third-party/zeroclipboard/ZeroClipboard.js" type="text/javascript" defer="defer"></script>
+
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="__JS__/plugins/excanvas.min.js"></script><![endif]-->
+<!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href="css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href="css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+  <script src="__JS__/plugins/css3-mediaqueries.js"></script>
+<![endif]-->
+
+
+
+<script type="text/javascript" src="__JS__/custom/forms.js"></script>
+
+<style type="text/css">
+  .imgshow{width: 100px;height: 100px;background-color:;position: relative;border-style: dashed;border-color: #c1c0c0;border-width: 1px;}
+
+</style>
+</head>
+
+
+
+<body class="withvernav">
+<div class="bodywrapper">
+   {include file="common/left"/} 
+        
+  <div class="centercontent">
+
+
+
+       
+   
+
+      <div class="pageheader notab">
+            <h1 class="pagetitle">新增案例</h1> 
+            <span class="pagedesc"></span>
+            
+        </div>
+ <div class="contentwrapper">
+        <div class="contenttitle2">
+                      <h3>编辑</h3>
+                      </div><br>
+                
+
+<!--uedti-->
+ 
+<div class="add_adver">
+
+<h3>案例信息</h3><br>
+
+  
+                    <!-- START OF DEFAULT WIZARD -->
+                    <form class="stdform"  action="">
+   
+                                
+                      <!--table-->
+                      <table cellpadding="0" cellspacing="0" border="0" class="stdtable" style="width: 500px;" >
+                    <colgroup>
+                        <col class="con0">
+                        <col class="con1">
+                        <col class="con0">
+                        <col class="con1">
+                        <col class="con0">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="head0">案例信息</th>
+                            <th class="head1">填写</th>
+                           
+                        </tr>
+                    </thead>
+                     <tbody>
+                     <tr>
+                      <td>  案例名称</td>
+                      <td><input type="text" id="casename" class="smallinput"></td>
+                     </tr>
+
+                     <tr>
+                       <td>案例类型</td>
+                       <td>
+                              <select name="selection" id="typename">
+                             {volist name="type_list" id="vo" length="10"}
+                            <option  value="{$vo.typename}">{$vo.typename}</option>
+                           {/volist}
+                          </select>
+                       </td>
+                     </tr>
+              
+                      <tr>
+                       <td>       预览图片
+                           
+                            </td>
+                            <td>
+    <input type="file" id="img" class="imgup"  style="width: 100px;height: 100px;border-style: dashed;border-color:#c1c0c0;border-width: 1px;">
+        <div class="imgshow" >
+          <img style="width:96px;padding: 2px;" id="pic" src="__ROOT__/static/images/upimg-bg.jpg" >
+        </div>
+                            </td>
+                     </tr>
+ 
+                    </tbody>
+                </table><br>
+                      <!--table-->
+            
+
+                    </form>
+                    <!-- END OF DEFAULT WIZARD -->
+
+<h3>案例内页排版</h3><br>
+    <script id="editor" type="text/plain" style="width:1000px;height:500px;"></script>
+
+ <button onclick="getContent('')" class="stdbtn btn_blue">提交</button>
+</div>
+
+<script type="text/javascript">
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+   function getContent(name) {
+        var arr = [];
+       // arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+       // arr.push("内容为：");
+        arr.push(UE.getEditor('editor').getContent());
+       // alert($("#typename").val());
+ var data = new FormData();
+data.append('img', $('#img')[0].files[0]);//可以是文件
+data.append('text','"'+arr+'"');
+data.append('typename',$("#typename").val());
+data.append('casename',$("#casename").val());
+
+  $.ajax({
+    url: '{:url('admin/datapost/caseadd')}',
+    type: 'POST',
+    cache: false,
+   // data: new FormData($('#uploadForm')[0]),
+   data:data,
+    processData: false,
+    contentType: false,
+    success:function(result){
+      $(function(){baomsg(result)});
+      if (result ==1) {
+          $(location).attr('href', '{:url('admin/index/home')}?page=1');
+
+      }
+    }
+}); 
+    
+    }//........................
+
+
+</script><!--uedti-->
+
+      </div><!-- contentwrapper -->
+  </div><!-- centercontent --> 
+</div><!--bodywrapper-->
+
+</body>
+
+</html>

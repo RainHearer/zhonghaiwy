@@ -1,0 +1,21 @@
+{include file="common/head"/}
+
+<!--star动画-->
+<div class="banner">
+	<ul class="bd">
+
+	</ul>
+<ul class="hd"></ul>
+</div>
+<!--end动画-->
+<!--star一行-->
+<div style="height: 600px; padding: 30px;" class="casepage-con">
+{volist name="casepage" id='case'}
+<div style="font-size: 30px; text-align: center;">{$case.casename}</div>
+
+<div  style=" width: 100%;background-color: #ffffff; word-wrap: break-word; float: left; padding: 10px;'" class="con">
+{$case.caseurl}
+</div>
+	{/volist}
+</div>
+{include file="common/footer"/}

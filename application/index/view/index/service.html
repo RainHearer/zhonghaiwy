@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>桂林中海物业公司</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/css.css">
+	</head>
+	<body style="background:#fff;">
+		<div class="header">
+			<div class="header w_1200">
+				<div class="logo"><a href="index.html"><img src="__ROOT__/static/images/logo.png" alt="桂林中海物业公司"></a>
+				<div class="word"><span>桂林xxxx公司</span><br>
+			GUI LIN ZHONG HAI WU YE GONG SI</div>
+		</div>
+		<!--end标志-->
+		<ul class="h_tel cf2"><li><img src="__ROOT__/static/images/hotline.png"><p class="eng_b ">咨询服务热线：0773--2293029</p></li></ul>
+	</div>
+</div>
+<!--end头文件-->
+<!-- nav -->
+<div class="tnav" id="slideNav">
+	<div class="tnav tnav02 w_1200">
+		<ul class="tnavlist">
+			<li class="current_nav"><a href="index.html" class="dt">首页</a></li>
+			<li>
+				<a href="companyinfo.html" class="dt">公司简介</a>
+			</li>
+			<li>
+				<a href="service.html" class="dt">服务项目</a>
+			</li>
+			<li><a href="sucessecase.html?page=1" class="dt">成功案例</a></li>
+			<li><a href="companynew.html?page=1" class="dt">企业新闻</a></li>
+			<li><a href="advertise.html" class="dt">企业招聘</a></li>
+			<li><a href="us.html" class="dt">联系我们</a></li>
+		</ul>
+		<i class="tavline slideline" id="slideNavLine"></i>
+	</div>
+</div>
+<!-- end nav -->
+
+
+<!--star动画-->
+{volist  name="img" id="img"}
+<div style="background:url(__ROOT__/{$img.imgpath});" class="banner_03 ">
+{/volist}
+</div>
+
+<div class="services_detail w_1200">
+	<div class="tabs">
+		<div class="tab on">全部服务</div>
+		{volist name="type_list" id="vo" }
+		<div class="tab">{$vo}</div>
+		{/volist}
+
+		<div class="clear"></div>
+	</div>
+
+	<div class="detail">  
+	<div class="content on"></div>
+
+	    {php}  $d=-1;{/php}	
+ {volist name="case_list" id="vo1" }
+ <div class="content">
+
+  
+	 {php} $d++; 
+	 {/php}
+	{volist name="case_list[$d]" id="case" }
+	
+			{php}
+			if(!($i==1||(($i-1)%4)==0)){echo '<div class="blank"></div>';}
+			{/php}
+			<div class="item">
+				<a href="casepage?id={$case.id}" target="_blank"><img class="case_img"  src="__ROOT__/{$case.imgpath}" alt=""></a>
+				<p>{$case.casename}</p>
+			</div>
+
+	 {/volist}    
+	<div class="clear"></div>
+
+ </div>
+{/volist}
+	
+
+	
+	</div>
+	<div class="clear"></div>
+</div>
+<!--end动画-->
+<!--star一行-->
+<div class="w_1200">
+
+	</div>
+	<!--end一行-->
+<div class="footer">
+		<ul class="w_1200 footer">
+			<li><span class="f_share"><a href="#####"><img class="share_a" src="__ROOT__/static/images/qr.png"></a></span>
+			<span class="word">扫一扫<br>关注官方微信公众号</span>
+		</li>
+		<li><a href="index.html">首页</a>    <span class="spliter">|</span>    <a href="companyinfo.html">公司简介</a>    <span class="spliter">|</span>    <a href="service.html">服务项目</a>    <span class="spliter">|</span>    <a href="sucessecase.html?page=1">成功案例</a>   <span class="spliter">|</span>    <a href="companynew.html?page=1.html">企业新闻</a>    <span class="spliter">|</span>    <a href="advertise.html">企业招聘</a>     <span class="spliter">|</span><a href="us.html">联系我们</a></li>
+		<li>&nbsp;  </li>
+		<li>版权所有：桂林市中海物业服务有限公司&nbsp;&nbsp;&nbsp;&nbsp;地址：桂林市七星区朝阳路信息产业园创新大厦A座—C113</li>
+		<li>邮编：541700   电话：0773-2293029</li>
+	</ul>
+</div>
+<!--end文件底-->
+<script type="text/javascript" src="__JS__/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="__JS__/jquery.SuperSlide.2.1.2.js"></script>
+<script type="text/javascript" src="__JS__/global.js"></script>
+<!--返回顶部-->
+<a style="display: none" href="javascript:;" class="top" title="回到顶端" id="top"></a>
+<script src="js/top.js"></script>
+<!--end返回顶部-->
+<!--[if IE 6]>
+<script type="text/javascript" src="js/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('img,.black,.ac_arrow,.acfter_c');
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+	var $tabs = $('.services_detail .tab'),
+	    $contents = $('.services_detail .content').addClass('on');
+
+	$tabs.on('click',function(){
+		//console.log();
+		var index = $tabs.index(this);
+		//console.log(index);
+		$tabs.removeClass('on');
+		$(this).addClass("on");
+		if(index==0){
+			$contents.addClass('on');
+			return;
+		}
+		$contents.removeClass('on');
+		$contents.eq(index).addClass('on');
+})
+
+</script>
+</body>
+</html>

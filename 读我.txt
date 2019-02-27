@@ -1,0 +1,8 @@
+数据库配置位置
+zhonghai/application/database.php
+
+后台入口
+zhonghai/admin.php
+管理员密码
+user:bao
+passward:li484sha

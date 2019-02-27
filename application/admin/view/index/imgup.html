@@ -1,0 +1,134 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>控制台页面</title>
+<link rel="stylesheet" href="__CSS__/style.default.css" type="text/css" />
+<script type="text/javascript" src="__JS__/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.flot.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="__JS__/plugins/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="__JS__/custom/general.js"></script>
+<script type="text/javascript" src="__JS__/custom/dashboard.js"></script>
+<script type="text/javascript" src="__JS__/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="__JS__/bao.js"></script>
+
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="__JS__/plugins/excanvas.min.js"></script><![endif]-->
+<!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href="css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href="css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+  <script src="__JS__/plugins/css3-mediaqueries.js"></script>
+<![endif]-->
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("#upform").click(function(){
+ var data = new FormData();
+data.append('img', $('#img')[0].files[0]);//可以是文件
+data.append('type',$("#type").val());
+data.append('url',$("#url").val());
+
+
+  $.ajax({
+    url: '{:url('admin/datapost/picup')}',
+    type: 'POST',
+    cache: false,
+   // data: new FormData($('#uploadForm')[0]),
+     data:data,
+    processData: false,
+    contentType: false,
+    success:function(result){
+      alert(result);
+      $(location).attr('href', '{:url('admin/index/picedti')}');
+    }
+}); //ajax
+      });//upform .click 
+	});//end
+
+	
+</script>
+
+<style type="text/css">
+	.imgshow{width: 100px;height: 100px;background-color:;position: relative;border-style: dashed;border-color: #c1c0c0;border-width: 1px;}
+
+</style>
+
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+   {include file="common/left"/} 
+        
+  <div class="centercontent">
+    
+        <div class="pageheader notab">
+            <h1 class="pagetitle">上传/更新图片</h1> 
+            <span class="pagedesc"></span>
+            
+        </div>
+                           
+ <div class="contentwrapper">
+        <form class="stdform">
+        	<table cellpadding="0" cellspacing="0" border="0" class="stdtable" style="width: 500px;">
+        		<thead>
+        			<tr>
+        				<td>选项</td>
+        				<td>填写</td>
+        			</tr>
+        		</thead>
+        		<tbody>
+        			<tr>
+        				<td>图片位置</td>
+        				<td>
+        					<select id="type" >
+        						<option  selected = "selected">主页轮播图</option>
+        						<option >公司简介top图</option>
+        						<option>服务项目top图</option>
+        						<option>成功案例top图</option>
+        						<option>企业新闻top图</option>
+        						<option>企业招聘top图</option>
+        						<option>主页-服务理念</option>
+        						<option>主页-招聘信息</option>
+        						<option>主页-家政服务</option>
+        					</select>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td>跳转链接</td>
+        				<td><input type="text" value="" class="smallinput" id="url"></td>
+        			</tr>
+        			<tr>
+        			<td>选择图片</td>
+        				<td>
+        					 <input type="file" class="imgup" id="img"  style="width: 100px;height: 100px;border-style: dashed;border-color:#c1c0c0;border-width: 1px;">
+        <div class="imgshow" >
+        	<img style="width:96px;padding: 2px;" id="pic" src="__ROOT__/static/images/upimg-bg.jpg" >
+        </div>
+        				</td>
+        			</tr>
+        		</tbody>
+        	</table>
+        </form>
+        <br>
+        <button id="upform" class="stdbtn btn_blue">更新/上传</button>
+        <a href="{:url('admin/index/picedti')}"><button  class="stdbtn btn_blue">返回</button></a>
+          
+        </div>
+              
+  </div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+
+</html>

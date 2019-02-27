@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>桂林物业公司</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/css.css">
+	</head>
+	<body style="background:#fff;">
+		<div class="header">
+			<div class="header w_1200">
+				<div class="logo"><a href="首页.html"><img src="__ROOT__/static/images/logo.png" alt="桂林xx物业公司"></a>
+				<div class="word"><span>桂林xx物业公司</span><br>
+			GUI LIN ZHONG HAI WU YE GONG SI</div>
+		</div>
+		<!--end标志-->
+		<ul class="h_tel cf2"><li><img src="__ROOT__/static/images/hotline.png"><p class="eng_b ">咨询服务热线：0773--2293029</p></li></ul>
+	</div>
+</div>
+<!--end头文件-->
+<!-- nav -->
+<div class="tnav" id="slideNav">
+	<div class="tnav tnav02 w_1200">
+		<ul class="tnavlist">
+			<li class="current_nav"><a href="index.html" class="dt">首页</a></li>
+			<li>
+				<a href="companyinfo.html" class="dt">公司简介</a>
+			</li>
+			<li>
+				<a href="service.html" class="dt">服务项目</a>
+			</li>
+			<li><a href="sucessecase.html" class="dt">成功案例</a></li>
+			<li><a href="companynew.html?page=1" class="dt">企业新闻</a></li>
+			<li><a href="advertise.html" class="dt">企业招聘</a></li>
+			<li><a href="us.html" class="dt">联系我们</a></li>
+		</ul>
+		<i class="tavline slideline" id="slideNavLine"></i>
+	</div>
+</div>
+<!-- end nav -->
+<!--star动画-->
+<div class="banner_05">
+
+</div>
+<!--end动画-->
+<!--star一行-->
+<div class="w_1200 news_detail">
+
+{volist name="new" id="vo"}
+
+<div class="title"><img src="__ROOT__/static/images/edit.png">{$vo.author}</div>
+<div class="content">{$vo.new}<p class="date">{$vo.date}</p></div>
+{/volist}
+<div class="pagination"><div class="pre"><a href="companynewpage.html?id={php}echo $_GET['id']-1;{/php}">上一篇</a></div><div class="next"><a href="companynewpage.html?id={php}echo $_GET['id']+1;{/php}">下一篇</div></a></div>
+
+	</div>
+	<!--end一行-->
+	<div class="footer">
+		<ul class="w_1200 footer">
+			<li><span class="f_share"><a href="#####"><img class="share_a" src="__ROOT__/static/images/qr.png"></a></span>
+			<span class="word">扫一扫<br>关注官方微信公众号</span>
+		</li>
+		<li><a href="首页.html">首页</a>    <span class="spliter">|</span>    <a href="公司简介.html">公司简介</a>    <span class="spliter">|</span>    <a href="服务项目.html">服务项目</a>    <span class="spliter">|</span>    <a href="成功案例.html">成功案例</a>   <span class="spliter">|</span>    <a href="企业新闻.html">企业新闻</a>    <span class="spliter">|</span>    <a href="企业招聘.html">企业招聘</a>     <span class="spliter">|</span><a href="联系我们.html">联系我们</a></li>
+		<li>&nbsp;  </li>
+		<li>版权所有：桂林市xx物业服务有限公司&nbsp;&nbsp;&nbsp;&nbsp;地址：桂林市七星区朝阳路信息产业园创新大厦A座—C113</li>
+		<li>邮编：541700   电话：0773-2293029</li>
+	</ul>
+</div>
+<!--end文件底-->
+<script type="text/javascript" src="__JS__/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="__JS__/jquery.SuperSlide.2.1.2.js"></script>
+<script type="text/javascript" src="__JS__/global.js"></script>
+<!--返回顶部-->
+<a style="display: none" href="javascript:;" class="top" title="回到顶端" id="top"></a>
+<script src="__JS__/top.js"></script>
+<!--end返回顶部-->
+<!--[if IE 6]>
+<script type="text/javascript" src="js/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('img,.black,.ac_arrow,.acfter_c');
+</script>
+<![endif]-->
+</body>
+</html>

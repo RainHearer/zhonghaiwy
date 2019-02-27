@@ -1,0 +1,52 @@
+﻿{include file="common/head"/}
+<!-- end nav -->
+<!--star动画-->
+{volist  name="img" id="img"}
+<div style="background:url(__ROOT__/{$img.imgpath});" class="banner_05 ">
+{/volist}
+
+
+</div>
+<!--end动画-->
+<!--star一行-->
+<div class="w_1200 news">
+<div class="content">
+			<div class="item">
+
+				{volist name="new" id="vo" length="20"}
+             <div class="title"><img src="__ROOT__/static/images/edit.png">{$vo.author}</div>
+
+				<a href="companynewpage.html?id={$vo.id}">
+				<div class="content">{$vo.new}
+<p class="date">{$vo.date}</p>
+</div></a>
+{/volist}
+		
+
+			</div>
+	
+			</div>
+		
+			   
+
+				<div class="pagination">
+				<span class="totalNum">{$count}</span>&nbsp;条记录 &nbsp;{php}echo $_GET['page'];{/php}/{php}echo ceil($count/10);{/php}页 &nbsp; <a href="companynew.html?page={php}echo $_GET['page']+1;{/php}">下一页</a> 
+
+				{php}
+				  for ($i=1; $i < ceil(($count+1)/10)+1; $i++) { 
+				  echo "<a class='pageNum' href='companynew.html?page=".$i."'>".$i."</a>";
+				  
+           
+                             }
+
+
+				{/php}
+			
+				</div>
+				
+
+
+
+	</div>
+	<!--end一行-->
+{include file="common/footer"/}

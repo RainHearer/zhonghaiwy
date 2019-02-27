@@ -1,0 +1,42 @@
+﻿{include file="common/head"/}<!-- end nav -->
+<!--star动画-->
+{volist  name="img" id="img"}
+<div style="background:url(__ROOT__/{$img.imgpath});" class="banner_06 ">
+{/volist}
+
+<div class="mask">
+<div class="title">企业招聘<div></div></div>
+<div class="nav"><a href="首页.html">首页</a>/<span>企业招聘</span></div>
+</div>
+</div>
+<!--end动画-->
+<!--star一行-->
+<div class="w_1200">
+<div class="hire_content">
+<!--
+<div class="hire_block">随着公司的进一步发展，我们需要大量优秀人才的加入！我们始终贯彻"以人为本、诚实守信、用心服务"的理
+念，一直从实际出发，逐步完善自己的企业文化及内部管理体系，我们致力于就是打造出一支年轻、充满朝气、共
+同进步的团队！
+      </div>
+<div class="hire_block">只要您有梦想，只要您有实力，我们就能为您提供一个让梦想成真的舞台，了解我们加入我们，我们等着您！</div>
+-->
+{$adverinfo}
+
+
+{volist name='adver_list' id="vo" }
+<div class="hire_item">
+	<div class="title">{$vo.postion}</div>
+	<div class="content">
+		
+{$vo.text}
+	</div>
+
+</div>
+{/volist}
+
+
+
+<div class="clear"></div>
+</div>
+	</div>
+	<!--end一行-->{include file="common/footer"/}
